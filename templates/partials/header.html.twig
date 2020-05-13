@@ -1,0 +1,54 @@
+  <nav class = "navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Navbar </font> </font> </a>
+  <button class = "navbar-toggler" type = "button" data-toggle = "collapse" data-target = "# navbarColor01" aria-controls = "navbarColor01" aria-extended = "false" aria-label = "Basculer la navigation ">
+    <span class = "navbar-toggler-icon"> </span>
+  </button>
+
+  <div class = "collapse navbar-collapse" id = "navbarColor01">
+    <ul class = "navbar-nav mr-auto">
+      <li class = "nav-item active">
+        <a class="nav-link" href="{{ path('homepage') }} "> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Accueil </font> </font> <span class = "sr-only"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> (actuel) </font> </font> </ span > </a>
+      </li>
+      <li class = "nav-item">
+        <a class="nav-link" href="{{ path('ads_index') }} "> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Liste d'annonce </font> </font> </a>
+      </li>
+      <li class = "nav-item">
+        <a class="nav-link" href="{{ path('ads_create') }}"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Crée une annonce </font> </font> </a>
+      </li>
+            <li class = "nav-item dropdown">
+            {% if app.user%}
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
+        id="accountDropdownLink">
+          <img src="{{app.user.picture}}" class="avatar avatar-mini" alt="Avatar de {{app.user.fullName}}"> {{app.user.fullname}}</a>
+
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a href="{{ path('account_index') }}" class="dropdown-item">Mon compte </a> 
+          <a href="{{ path('acount_profile') }}" class="dropdown-item">Modifier mon profil </a>
+          <a href="{{ path('account_bookings') }}" class="dropdown-item">mes reservation </a>
+          <div class="dropdown-divider"></div>
+          <a href="{{ path('account_logout') }}" class="dropdown-item"> Deconnexion</a>
+          </div>
+          </li> 
+      {% else %}
+                  <li class = "nav-item">
+        <a class="nav-link" href="{{ path('account_register') }}"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Inscription </font> </font> </a>
+      </li>
+                  <li class = "nav-item">
+        <a class="nav-link" href="{{ path('account_login') }}"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> connexion </font> </font> </a>
+      </li>
+      {% endif %}
+    </ul>
+    <form class = "form-inline my-2 my-lg-0">
+      <input class = "form-control mr-sm-2" type = "text" placeholder = "Search">
+      <button class = "btn btn-secondary my-2 my-sm-0" type = "submit"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Chercher </font> </font> </button>
+    </form>
+  </div>
+</nav>
+{% for label, messages in app.flashes %}
+  <div class="container">
+    <div class="alert alert-{{ label }}" role="alert">
+  <p>{% for message in messages %}
+            <h4><p>{{ message | raw }} </p><h4>
+      {% endfor %}</p>
+</div>
+{% endfor %}
