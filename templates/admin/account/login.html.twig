@@ -1,20 +1,56 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Hello AdminAccountController!{% endblock %}
-
-{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion a l'administration</title>
+           <link rel="stylesheet" href="/css/boostrap.css">
+            <link rel="stylesheet" href="/css/app.css">
+    <script src="https://kit.fontawesome.com/823531430c.js" crossorigin="anonymous"></script>
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    body {
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .card {
+        margin-top: 10%;    
+    }
 </style>
+</head>
+<body>
+    <div class="col-md-4">
+    <div class="card bg-light">
+        <div class="car-header">
+            <h4 class="card title">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/33699/Desktop/monprojet/monsite/src/Controller/AdminAccountController.php'|file_link(0) }}">src/Controller/AdminAccountController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/33699/Desktop/monprojet/monsite/templates/admin_account/index.html.twig'|file_link(0) }}">templates/admin_account/index.html.twig</a></code></li>
-    </ul>
+                <i class="fas fa-lock">
+            Connexion a l'administration
+            </i>
+            </h4>
+        </div>
+    <div class="card-body">
+            {% if hasError %}
+                <div class"alert alert-warning">
+                    <p> les information que vous avez fournie ne sont pas bonnes.</p>
+                </div>
+            {% endif %}
+        <form method="post">
+            <div class="form-group"><label for="_username"></label><input type="text" class="form-control" placeholder="Adresse email" name="_username" value="{{ username }}"></div>
+            <div class="form-group"><label for="_password"></label><input type="password" class="form-control" placeholder="mdp" name="_password"></div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">
+            <i class="fas fa-lock-open"></i>
+            connnexion !
+        </button>
+        <a href="{{ path('homepage')}}" class="btn btn-link">
+            <i class="fas fa-arrow-circle-left"></i>
+            retour au site 
+        </a>
+    </div>
+    
+    </div>
 </div>
-{% endblock %}
+</body>
+</html>
