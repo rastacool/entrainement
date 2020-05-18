@@ -66,6 +66,7 @@ class Booking
      * Call bak apppelé a chaque fois qu'on crée une reservation
      * 
      * @ORM\PrePersist
+     * @ORM\PreUpdate
      * 
      * @return void
      */

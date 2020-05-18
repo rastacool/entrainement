@@ -1,0 +1,36 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %} modification de l'annonce numero {% endblock %}
+
+{% form_theme form _self %}
+
+{% block body %}
+<div class="container-fluid">
+    <h1 class="my-5" > CORRIGER LE COMMENTAIREE {{comment.ad.title}} </h1>
+
+    {{ form_start(form) }}
+    <div class="row">
+        <div class="col">
+        <div class="card bg-light">
+            <div class="card-header">
+                <h4 class="card-title">CORRIGER LE COMMENTAIREE et de la note</h4>
+            </div>
+                 <div class="card-body">
+                 <div class="alert alert-info">
+                 <strong>auteur</strong> : {{comment.author.fullName}}</br>
+                 <strong>date de créeation</strong> : {{comment.createdAt |date("d/m/Y") }}</br>
+                 <strong>note donnée</strong> : {{comment.rating}}</br>
+                 </div>
+                {{ form_widget(form) }}
+                               <button type="submit" class="btn btn-primary">
+                <i class="fas fa-check"></i>
+                valider les modification
+                </button>
+                 </div>
+            </div>
+        </div>
+    
+    {{ form_end(form) }}
+</div>
+
+{% endblock %}
