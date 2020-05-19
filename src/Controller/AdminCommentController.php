@@ -6,6 +6,7 @@ use App\Entity\Ad;
 use App\Entity\Comment;
 use App\Form\AnnonceType;
 use App\Form\CommentType;
+use App\Service\PaginationService;
 use App\Repository\CommentRepository;
 use App\Controller\AdminCommentController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,14 +17,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class AdminCommentController extends AbstractController
 {
     /**
-     * @Route("/admin/comment", name="admin_comment")
+     * @Route("/admin/comment/{page<\d+>?1}", name="admin_comment")
      * permet d'afficher tout es commentaire
      * @return Response
      */
-    public function comment(CommentRepository $repo)
+    public function comment(CommentRepository $repo, $page , PaginationService $pagination)
     {
+        $pagination->setEntityClass(Comment::class)
+        ->setPage($page);
         return $this->render('admin/comment/comment.html.twig', [
-            'comment' => $repo->findall(),
+            'pagination' => $pagination
         ]
         );
     }

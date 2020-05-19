@@ -4,7 +4,7 @@
 
 {% block body %}
 <div class="container-fluid">
-    <h1 class="my-5"> Gestion des annonces </h1>
+    <h1 class="my-5"> Gestion des reservation </h1>
 w
     <table class="table table-hover">
         <thead>
@@ -21,7 +21,7 @@ w
         </thead>
     
     <tbody>
-    {% for booking in booking %}
+    {% for booking in pagination.data %}
     <tr>
         <td>{{booking.id}}</td>
         <td>{{booking.startdate |date("d/m/Y")}}</td>
@@ -37,6 +37,8 @@ w
         </td>
     </tr>
     {% endfor %}
-   </table>     
+   </table> 
+
+{{ pagination.display() }}
 </div>
 {% endblock %}
