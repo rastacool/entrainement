@@ -1,35 +1,51 @@
 {% extends 'base.html.twig'%}
 
 {% block body %}
-    <h1 class="my-5">{{ title | upper}}</h1>
-    <h2>le vrai titre est {{ title }}</h2>
+	<h1 class="my-5">{{ title | upper}}</h1>
+	<h2>le vrai titre est
+		{{ title }}</h2>
 
-    <p> comment allez vous !?</p>
-    <a href="{{ path('hello',{'prenom':'lior', 'age':10}) }}">allez voir Hello </a>
-    
-    {#
-    {% if age >=18 %}
-    <P> vous etes un adulte </p>
-    {% elseif age >=12 %}
-    <P> vous etes un ado
-    {% else %}
-    <p> vous etes mineur<P>
-    {% endif %}
-    #}
-    <ul>
-        {% for compteur in 0..10%}
-            <li>{{compteur}}</li>
-        {% endfor %}
-    </ul>
+	<p>
+		comment allez vous !?</p>
+	<a href="{{ path('hello',{'prenom':'lior', 'age':10}) }}">allez voir Hello
+	</a>
+
+	{#
+	    {% if age >=18 %}
+	    <P> vous etes un adulte </p>
+	    {% elseif age >=12 %}
+	    <P> vous etes un ado
+	    {% else %}
+	    <p> vous etes mineur<P>
+	    {% endif %}
+	    #}
+	<ul>
+		{% for compteur in 0..10%}
+			<li>{{compteur}}</li>
+		{% endfor %}
+	</ul>
 
 
-    {% for prenom, age in tableau %}
-    {% if loop.first %}
-    <strong> {{prenom}} a {{ age }} ans </strong>
-    {% elseif loop.last %}
-    <em>{{prenom}} a {{ age }} ans</em>
-    {% else %}
-        <P>(literation numéro {{ loop.index }}) {{ prenom }} a {{ age }} ans</p>
-    {% endif %}
-    {% endfor %}
+	{% for prenom, age in tableau %}
+		{% if loop.first %}
+			<strong>
+				{{prenom}}
+				a
+				{{ age }}
+				ans
+			</strong>
+		{% elseif loop.last %}
+			<em>{{prenom}}
+				a
+				{{ age }}
+				ans</em>
+		{% else %}
+			<P>(literation numéro
+				{{ loop.index }})
+				{{ prenom }}
+				a
+				{{ age }}
+				ans</p>
+		{% endif %}
+	{% endfor %}
 {% endblock %}

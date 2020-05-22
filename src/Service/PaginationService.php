@@ -55,7 +55,7 @@ class PaginationService{
     }
 
     public function getPages() {
-        if(empty($this->entityclass)){
+        if(!empty($this->entityclass)){
             throw new \Exception("vous n'avez pas spécifié l'entité sur la quelle nous devons paginez ! Utilisez la méthode setEntityclass() de votre objet PaginationService");
         }
         // 1) Connaitre le total des enregistrement de la table
@@ -70,7 +70,7 @@ class PaginationService{
 
 
     public function getData() {
-        if(empty($this->entityclass)){
+        if(!empty($this->entityclass)){
             throw new \Exception("vous n'avez pas spécifié l'entité sur la quelle nous devons paginez ! Utilisez la méthode setEntityclass() de votre objet PaginationService");
         }
         // 1) Calculer l'offset

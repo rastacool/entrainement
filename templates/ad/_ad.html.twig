@@ -1,29 +1,40 @@
 {% set url =  path('ads_show', {'slug' : ad.slug}) %}
-    <table>
-  <tr>
-    
- 
-    <div class="card" style="width: 18rem;">
-    <a href="{{ url }}">
-  <img src="{{ ad.coverImage }}" class="card-img-top" alt="meliodas">
-  </a>
-  <div class="card-body">
-    <a href="{{ url }}">
-    <h5 class="card-title">{{ ad.title }}</h5>
-    </a>
-    <p class="card-text">il y a {{ ad.rooms }} et de prix <strong> {{ad.price}} euro</strong></p>
-    <p class="card-text">{{ ad.introduction }}</p>
-    <a href="{{ url }}" class="btn btn-primary"> on savoir plus  </a>
-    <p> {% if ad.comments|length >0 %}
-              {% include 'partials/rating.html.twig' with {'rating': ad.avgRatings} %}
-        {% else %}
-          <small> pas encore noté </small>
-        {% endif %}
-        
-              {% if app.user and app.user == ad.author %}
-          <a class="btn btn-secondary" href="{{ path('ads_edit', {'slug' : ad.slug}) }}">Modifier l'annonce</a>
-          {% endif %}
-          
-  </div>
-</div>
- </tr>    
+<table>
+	<tr>
+
+
+		<div class="card" style="width: 18rem;">
+			<a href="{{ url }}">
+				<img src="{{ ad.coverImage }}" class="card-img-top" alt="meliodas">
+			</a>
+			<div class="card-body">
+				<a href="{{ url }}">
+					<h5 class="card-title">{{ ad.title }}</h5>
+				</a>
+				<p class="card-text">il y a
+					{{ ad.rooms }}
+					et de prix
+					<strong>
+						{{ad.price}}
+						euro</strong>
+				</p>
+				<p class="card-text">{{ ad.introduction }}</p>
+				<a href="{{ url }}" class="btn btn-primary">
+					on savoir plus
+				</a>
+				<p>
+					{% if ad.comments|length >0 %}
+						{% include 'partials/rating.html.twig' with {'rating': ad.avgRatings} %}
+					{% else %}
+						<small>
+							pas encore noté
+						</small>
+					{% endif %}
+
+					{% if app.user and app.user == ad.author %}
+						<a class="btn btn-secondary" href="{{ path('ads_edit', {'slug' : ad.slug}) }}">Modifier l'annonce</a>
+					{% endif %}
+				</p>
+			</div>
+		</div>
+	</tr>

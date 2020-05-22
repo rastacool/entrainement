@@ -1,16 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}interdition d'acces {% endblock %}
+{% block title %}interdition d'acces
+{% endblock %}
 
 {% block body %}
 
-    <div class="container">
+	<div class="container">
 
 
-        <h1 class="my-5">alors on essaye de pirate le site haha </h1>
-        <p>vous n'avez pas abces a c manipe </p>
+		<h1 class="my-5">alors on essaye de pirate le site haha
+		</h1>
+		<p>vous n'avez pas abces a c manipe
+		</p>
 
-        <a href="{{ path('homepage') }}" class="btn btn-danger">Retour à l'accueil</a>
-    </div>
+		<a href="{{ path('homepage') }}" class="btn btn-danger">Retour à l'accueil</a>
+	</div>
 
-    {% endblock %}
+{% endblock %}

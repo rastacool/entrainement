@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
-{% block title %} creation dune annonce {% endblock %}
+{% block title %}
+	creation dune annonce
+{% endblock %}
 
 {% form_theme form 'ad/_collection.html.twig' %}
 
@@ -7,51 +9,52 @@
 {% block body %}
 
 
-<div class="container">
+	<div class="container">
 
-<h1 class="my-5"> creation dune annonce </h1>
-{{ form_start(form) }}
+		<h1 class="my-5">
+			creation dune annonce
+		</h1>
+		{{ form_start(form) }}
 
-<div class="row">
-    <div class="alert alert-light">
-        <h2> Information générales </h2>
-        <hr>
-        {{ form_row(form.title) }}
-        {{ form_row(form.slug) }}
-        {{ form_row(form.price) }}
-        {{ form_row(form.rooms) }}
-    </div>
-    <div class="alert alert-light">
-        <h2>Détails de l'annonce </h2>
-        <hr>
-        {{ form_row(form.introduction) }}
-        {{ form_row(form.content) }}
+		<div class="row">
+			<div class="alert alert-light">
+				<h2>
+					Information générales
+				</h2>
+				<hr>
+				{{ form_row(form.title) }}
+				{{ form_row(form.slug) }}
+				{{ form_row(form.price) }}
+				{{ form_row(form.rooms) }}
+			</div>
+			<div class="alert alert-light">
+				<h2>Détails de l'annonce
+				</h2>
+				<hr>
+				{{ form_row(form.introduction) }}
+				{{ form_row(form.content) }}
 
-    </div>
-</div>
-    <div class="col">
-        <div class="aler alert-light">
-        <h2>Image de l'annonce </h2>
-        <hr>
-        {{ form_row(form.coverImage) }}
-        {{ form_row(form.images) }}
-        </div>
-    </div>
-</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="aler alert-light">
+				<h2>Image de l'annonce
+				</h2>
+				<hr>
+				{{ form_row(form.coverImage) }}
+				{{ form_row(form.images) }}
+			</div>
+		</div>
+	</div>
 
-<div class="alert alert-success">
-<p> cree votre annonce </p>
-    <button type="submit" class="btn btn-primary">creer la nouvelle annonce</button>
-</div>
-{{ form_end(form) }}
-    
-</div>
-{% endblock %}
+	<div class="alert alert-success">
+		<p>
+			cree votre annonce
+		</p>
+		<button type="submit" class="btn btn-primary">creer la nouvelle annonce</button>
+	</div>
+	{{ form_end(form) }}
 
-{% block javascripts %} 
+</div>{% endblock %}{% block javascripts %}
 
-<script src="/js/ad.js"></script>
-
-{% endblock %}
-
-
+<script src="/js/ad.js"></script>{% endblock %}

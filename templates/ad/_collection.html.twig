@@ -1,40 +1,42 @@
 {% block _annonce_images_widget %}
-    <p> ici vous pouvez ajouté votre image </p>
+	<p>
+		ici vous pouvez ajouté votre image
+	</p>
 
-    {{ form_widget(form) }}
-    
-<input type "hidden" id="widgets-counter" value="0">
+	{{ form_widget(form) }}
 
-    <div class="form-group">
-        <button type="button" id="add-image" class="btn btn-primary">ajouter une image</button>
-        </div>
+	<input type "hidden" id="widgets-counter" value="0">
+
+	<div class="form-group">
+		<button type="button" id="add-image" class="btn btn-primary">ajouter une image</button>
+	</div>
 
 {% endblock %}
 
 {% block _annonce_images_entry_row %}
-    {{ form_widget(form) }}
+	{{ form_widget(form) }}
 
 {% endblock %}
 
 {% block _annonce_images_entry_widget %}
-<div class="form-group" id="block_{{id}}">
-<div class="row" >
-    <div class="col-10">
-        <div class="row">
-        <div class="col">
+	<div class="form-group" id="block_{{id}}">
+		<div class="row">
+			<div class="col-10">
+				<div class="row">
+					<div class="col">
 
-{{ form_widget(form.url)}}
-</div>
+						{{ form_widget(form.url)}}
+					</div>
 
-<div class="col">
-{{ form_widget(form.caption)}}
-</div>
-</div>
-</div>
-<div class="col-">
-    <button type="button" data-action="delete" data-target="#block_{{id}}" class="btn btn-danger">X</button>
-</div>
-</div>
+					<div class="col">
+						{{ form_widget(form.caption)}}
+					</div>
+				</div>
+			</div>
+			<div class="col-">
+				<button type="button" data-action="delete" data-target="#block_{{id}}" class="btn btn-danger">X</button>
+			</div>
+		</div>
 
-</div>
+	</div>
 {% endblock %}

@@ -1,41 +1,47 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Modification du profil utilisateur {% endblock %}
+{% block title %}
+	Modification du profil utilisateur
+{% endblock %}
 
 {% block body %}
 
-<div class="container">
+	<div class="container">
 
-	<h1 class="my-5"> Modification du profil </h1>
+		<h1 class="my-5">
+			Modification du profil
+		</h1>
 
-	{{ form_start(form) }}
-	<div class="row">
-		<div class="col">
-		<div class="alert alert-light">
-		<h2 class="alert-heading">Information generales </h2>
-		<hr>
-		{{ form_row(form.firstName) }}
-		{{ form_row(form.lastName) }}
-		{{ form_row(form.email) }}
-		{{ form_row(form.picture) }}
+		{{ form_start(form) }}
+		<div class="row">
+			<div class="col">
+				<div class="alert alert-light">
+					<h2 class="alert-heading">Information generales
+					</h2>
+					<hr>
+					{{ form_row(form.firstName) }}
+					{{ form_row(form.lastName) }}
+					{{ form_row(form.email) }}
+					{{ form_row(form.picture) }}
+				</div>
+			</div>
+			<div class="col">
+				<div class="alert alert-light">
+					<h2 class="alert-heading">Détails</h2>
+					<hr>
+					{{ form_row(form.introduction) }}
+					<hr>
+					{{ form_row(form.description) }}
+
+					<p>si vous avz terminé  vous pouvez sauvergardé</p>
+
+					<button type="submit" class="btn btn-primary">
+						Enregistrer les Modification</button>
+
+				</div>
+			</div>
+
+			{{ form_end(form) }}
 		</div>
-	</div>
-	<div class="col">
-		<div class="alert alert-light">
-		<h2 class="alert-heading">Détails</h2>
-		<hr>
-		{{ form_row(form.introduction) }}
-		<hr>
-				{{ form_row(form.description) }}
-		
-		<p>si vous avz terminé  vous pouvez sauvergardé</p>
 
-	<button type="submit" class="btn btn-primary"> Enregistrer les Modification</button>
-
-		</div>
-	</div>
-
-	{{ form_end(form) }}
-</div>
-
-{% endblock %}
+	{% endblock %}
